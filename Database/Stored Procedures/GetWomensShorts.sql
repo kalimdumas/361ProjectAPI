@@ -1,4 +1,4 @@
-CREATE PROCEDURE GetMensShirts
+CREATE PROCEDURE GetWomensShorts
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -10,7 +10,7 @@ BEGIN
 	ON p.productId = cp.productId 
 	LEFT JOIN Category c 
 	ON cp.categoryId = c.categoryId 
-  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everybody')
-  AND clothingType = 'shirt'
+  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everybody')
+  AND clothingType = 'shorts'
 	ORDER BY productId;
 END

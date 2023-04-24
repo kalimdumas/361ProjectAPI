@@ -28,7 +28,7 @@ phoneNumber VARCHAR(16)
 
 CREATE TABLE Address (
 addressId     INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-accountID      INT NOT NULL,
+accountID     INT NOT NULL,
 streetLineOne VARCHAR(32) NOT NULL,
 streetLineTwo VARCHAR(32),
 city          VARCHAR(64) NOT NULL,
@@ -41,7 +41,7 @@ FOREIGN KEY (accountID) REFERENCES Account(accountID)
 CREATE TABLE PaymentMethod (
 paymentMethodId INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 accountID       INT NOT NULL,
-cardNumber      BIGINT NOT NULL,
+cardNumber      VARCHAR(16) NOT NULL,
 expDate         DATE NOT NULL,
 cvvNumber       INT,
 FOREIGN KEY (accountID) REFERENCES Account(accountID)
@@ -87,7 +87,7 @@ FOREIGN KEY (productId) REFERENCES Product(productId)
 );
 
 CREATE TABLE Discount (
-discountId   INT  NOT NULL IDENTITY(1,1) PRIMARY KEY,
+discountId   INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 name         VARCHAR(32) NOT NULL,
 startDate    DATE NOT NULL,
 endDate      DATE NOT NULL,
@@ -98,7 +98,7 @@ dollarAmount FLOAT
 
 CREATE TABLE DiscountDeterminant (
 discountDeterminantId INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-discountId INT NOT NULL,
+discountId            INT NOT NULL,
 /* Values below are mutually exclusive. */
 categoryId            INT,
 productId             INT,
