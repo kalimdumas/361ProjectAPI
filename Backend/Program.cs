@@ -50,15 +50,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -93,15 +93,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -136,15 +136,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -179,15 +179,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -222,15 +222,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -265,15 +265,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -308,15 +308,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -351,15 +351,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -394,15 +394,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -437,15 +437,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -480,15 +480,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -523,15 +523,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -566,15 +566,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -609,15 +609,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -652,15 +652,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -695,15 +695,15 @@ public class Program
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
-                        product.price = (double)reader.GetFloat(4);
-                        product.numStars = (double)reader.GetFloat(5);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
                         product.sku = reader.GetString(6);
                         product.image = reader.GetString(7);
                         product.manufacturer = reader.GetString(8);
-                        product.height = (double)reader.GetFloat(9);
-                        product.length = (double)reader.GetFloat(10);
-                        product.width = (double)reader.GetFloat(11);
-                        product.weight = (double)reader.GetFloat(12);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
                         product.category = reader.GetString(14);
                         product.categoryDescription = reader.GetString(15);
@@ -726,15 +726,15 @@ public class Product
     public string? name                { get; set; }
     public string? broadType           { get; set; }
     public string? clothingType        { get; set; }
-    public double  price               { get; set; }
-    public double  numStars            { get; set; }
+    public float  price               { get; set; }
+    public float  numStars            { get; set; }
     public string? sku                 { get; set; }
     public string? image               { get; set; }
     public string? manufacturer        { get; set; }
-    public double  height              { get; set; }
-    public double  length              { get; set; }
-    public double  width               { get; set; }
-    public double  weight              { get; set; }
+    public float  height              { get; set; }
+    public float  length              { get; set; }
+    public float  width               { get; set; }
+    public float  weight              { get; set; }
     public string? description         { get; set; }
     public string? category            { get; set; }
     public string? categoryDescription { get; set; }
