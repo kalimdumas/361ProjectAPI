@@ -30,7 +30,7 @@ public class Program
 
         app.MapGet("/mens-shirts", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<MensShirt> products = new List<MensShirt>();
 
@@ -46,7 +46,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         MensShirt product = new MensShirt();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -73,7 +73,7 @@ public class Program
 
         app.MapGet("/mens-jackets", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<MensJacket> products = new List<MensJacket>();
 
@@ -89,7 +89,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         MensJacket product = new MensJacket();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -116,7 +116,7 @@ public class Program
 
         app.MapGet("/mens-pants", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<MensPants> products = new List<MensPants>();
 
@@ -132,7 +132,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         MensPants product = new MensPants();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -159,7 +159,7 @@ public class Program
 
         app.MapGet("/mens-shorts", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<MensShorts> products = new List<MensShorts>();
 
@@ -175,7 +175,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         MensShorts product = new MensShorts();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -202,7 +202,7 @@ public class Program
 
         app.MapGet("/womens-shirts", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<WomensShirt> products = new List<WomensShirt>();
 
@@ -218,7 +218,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         WomensShirt product = new WomensShirt();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -245,7 +245,7 @@ public class Program
 
         app.MapGet("/womens-jackets", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<WomensJacket> products = new List<WomensJacket>();
 
@@ -261,7 +261,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         WomensJacket product = new WomensJacket();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -288,7 +288,7 @@ public class Program
 
         app.MapGet("/womens-pants", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<WomensPants> products = new List<WomensPants>();
 
@@ -304,7 +304,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         WomensPants product = new WomensPants();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -331,7 +331,7 @@ public class Program
 
         app.MapGet("/womens-shorts", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<WomensShorts> products = new List<WomensShorts>();
 
@@ -347,7 +347,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         WomensShorts product = new WomensShorts();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -374,7 +374,7 @@ public class Program
 
         app.MapGet("/kids-shirts", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<KidsShirt> products = new List<KidsShirt>();
 
@@ -390,7 +390,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         KidsShirt product = new KidsShirt();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -417,7 +417,7 @@ public class Program
 
         app.MapGet("/kids-jackets", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<KidsJacket> products = new List<KidsJacket>();
 
@@ -433,7 +433,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         KidsJacket product = new KidsJacket();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -460,7 +460,7 @@ public class Program
 
         app.MapGet("/kids-pants", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<KidsPants> products = new List<KidsPants>();
 
@@ -476,7 +476,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         KidsPants product = new KidsPants();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -503,7 +503,7 @@ public class Program
 
         app.MapGet("/kids-shorts", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<KidsShorts> products = new List<KidsShorts>();
 
@@ -519,7 +519,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         KidsShorts product = new KidsShorts();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -546,7 +546,7 @@ public class Program
 
         app.MapGet("/backpacks", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<Backpack> products = new List<Backpack>();
 
@@ -562,7 +562,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         Backpack product = new Backpack();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -589,7 +589,7 @@ public class Program
 
         app.MapGet("/necklaces", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<Necklace> products = new List<Necklace>();
 
@@ -605,7 +605,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         Necklace product = new Necklace();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -632,7 +632,7 @@ public class Program
 
         app.MapGet("/watches", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<Watch> products = new List<Watch>();
 
@@ -648,7 +648,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         Watch product = new Watch();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
@@ -675,7 +675,7 @@ public class Program
 
         app.MapGet("/hats", async (HttpContext httpContext) =>
         {
-            string connectionString = builder.Configuration.GetConnectionString("local_database");
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
             List<Hat> products = new List<Hat>();
 
@@ -691,7 +691,7 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         Hat product = new Hat();
-                        product.productId = reader.GetInt32(0);
+                        product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
                         product.clothingType = reader.GetString(3);
