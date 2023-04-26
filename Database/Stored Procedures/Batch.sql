@@ -9,7 +9,9 @@ GO
 GO
   DROP PROCEDURE IF EXISTS GetCarts
 GO
-  DROP PROCEDURE IF EXISTS GetPastSales
+  DROP PROCEDURE IF EXISTS GetSales --Sales as in discounted products
+GO
+  DROP PROCEDURE IF EXISTS GetPastSales --Sales as in past purchases (removed from tables)
 GO
   DROP PROCEDURE IF EXISTS GetProducts
 GO
@@ -92,18 +94,15 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE GetPastSales
+CREATE PROCEDURE GetSales --As in discounted products
 AS
 BEGIN
 	SET NOCOUNT ON;
-  SELECT a.*, * 
-  FROM Sale s 
-  RIGHT JOIN SaleProduct sp 
-  ON s.saleId = sp.saleId 
-  RIGHT JOIN Product p 
-  ON sp.productId = productId 
-  RIGHT JOIN Account a 
-  ON s.accountId = a.accountId;
+	SELECT s.*, sp.*
+	FROM Sale s
+	JOIN SaleProduct sp
+	ON s.saleId = sp.saleId
+	GROUP BY s.saleId
 END
 GO
 
