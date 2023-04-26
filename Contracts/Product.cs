@@ -46,5 +46,8 @@ namespace OnlineStore.Contracts
 
         [DataMember]
         public string? size { get; set; }
+
+        [DataMember]
+        public double? price { get; set; }
     }
 }

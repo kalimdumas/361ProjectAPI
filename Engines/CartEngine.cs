@@ -5,42 +5,48 @@ namespace OnlineStore.Engines
     public class CartEngine
     {
         List<Product> cart; // TODO: get cart from accessors
+        List<T> sales; // TODO: get sales from accessors
 
-        // TODO: implement
-        bool saleApplies<T>(Product item, ref T sale) where T : SaleInterface
-        {
-            return true;
+        double saleApplies(Product item, PercentProductSale sale) {
+            return (sale.saleProducts).Contains(item);
+        }
+        double saleApplies(Product item, PercentCategorySale sale) {
+            return sale.mainCategory == item.mainCategory;
+        }
+        double saleApplies(Product item, DollarProductSale sale) {
+            return (sale.saleProducts).Contains(item);
+        }
+        double saleApplies(Product item, DollarCategorySale sale) {
+            return sale.mainCategory == item.mainCategory;
         }
 
-        // Use generic types TODO: implement
-        double applySale<T>(Product item, ref T sale) where T : SaleInterface
-        {
-            return 0;
-        }
-
-        // Or use method overloading TOOD: implement
+        /* returns the cost of the item after applying the sale,
+         * assuming the sale applies to that item
+        */
         double applySale(Product item, PercentProductSale sale) {
-            return 0;
+            return item.price * (1 - (sale.percentOff / 100.0));
         }
         double applySale(Product item, PercentCategorySale sale) {
-            return 0;
+            return item.price * (1 - (sale.percentOff / 100.0));
         }
         double applySale(Product item, DollarProductSale sale) {
-            return 0;
+            return item.price - sale.dollarOff;
         }
         double applySale(Product item, DollarCategorySale sale) {
-            return 0;
+            return item.price - sale.dollarOff;
         }
 
-        // TODO: finish
+
         double getTotalCost<T>(List<Product> cart, ref List<T> sales) where T : SaleInterface
         {
             double total = 0;
             foreach (var item in cart)
             {
-                // if (saleApplies(item, sales)) {
-                //     total += applySale(item, sale);
-                // }
+                for (int i=0; i<sales.Count; i++) {
+                    if (saleApplies(item, sales[i])) {
+                        total += applySale(item, sales[i]);
+                    }
+                }
             }
             return total;
         }
