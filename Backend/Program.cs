@@ -18,7 +18,7 @@ public class Program
             options.AddPolicy(name: MyAllowSpecificOrigins,
                 policy =>
                 {
-                    policy.WithOrigins("http://localhost:3000") // TODO: change to the port number that the frontend application runs on
+                    policy.WithOrigins("http://localhost:3000")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });

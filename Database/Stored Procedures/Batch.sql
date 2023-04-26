@@ -5,45 +5,45 @@ GO
 GO
   DROP PROCEDURE IF EXISTS GetAddresses
 GO
-  DROP PROCEDURE IF EXISTS GetBackpacks
+  DROP PROCEDURE IF EXISTS GetPaymentMethods
 GO
   DROP PROCEDURE IF EXISTS GetCarts
 GO
-  DROP PROCEDURE IF EXISTS GetHats
+  DROP PROCEDURE IF EXISTS GetPastSales
 GO
-  DROP PROCEDURE IF EXISTS GetKidsJackets
+  DROP PROCEDURE IF EXISTS GetProducts
 GO
-  DROP PROCEDURE IF EXISTS GetKidsPants
-GO
-  DROP PROCEDURE IF EXISTS GetKidsShirts
-GO
-  DROP PROCEDURE IF EXISTS GetKidsShorts
+  DROP PROCEDURE IF EXISTS GetMensShirts
 GO
   DROP PROCEDURE IF EXISTS GetMensJackets
 GO
   DROP PROCEDURE IF EXISTS GetMensPants
 GO
-  DROP PROCEDURE IF EXISTS GetMensShirts
-GO
   DROP PROCEDURE IF EXISTS GetMensShorts
 GO
-  DROP PROCEDURE IF EXISTS GetNecklaces
-GO
-  DROP PROCEDURE IF EXISTS GetPastSales
-GO
-  DROP PROCEDURE IF EXISTS GetPaymentMethods
-GO
-  DROP PROCEDURE IF EXISTS GetProducts
-GO
-  DROP PROCEDURE IF EXISTS GetWatches
+  DROP PROCEDURE IF EXISTS GetWomensShirts
 GO
   DROP PROCEDURE IF EXISTS GetWomensJackets
 GO
   DROP PROCEDURE IF EXISTS GetWomensPants
 GO
-  DROP PROCEDURE IF EXISTS GetWomensShirts
-GO
   DROP PROCEDURE IF EXISTS GetWomensShorts
+GO
+  DROP PROCEDURE IF EXISTS GetKidsShirts
+GO
+  DROP PROCEDURE IF EXISTS GetKidsJackets
+GO
+  DROP PROCEDURE IF EXISTS GetKidsPants
+GO
+  DROP PROCEDURE IF EXISTS GetKidsShorts
+GO
+  DROP PROCEDURE IF EXISTS GetBackpacks
+GO
+  DROP PROCEDURE IF EXISTS GetNecklaces
+GO
+  DROP PROCEDURE IF EXISTS GetWatches
+GO
+  DROP PROCEDURE IF EXISTS GetHats
 GO
 
 CREATE PROCEDURE GetAccounts
@@ -66,17 +66,14 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE GetBackpacks
+CREATE PROCEDURE GetPaymentMethods
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT productId, name, broadType, clothingType,
-	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
-	FROM Product
-  WHERE (broadType = 'accessory')
-  AND clothingType = 'backpack'
-	ORDER BY productId;
+	SELECT ac.*, pm.* 
+  FROM Account ac 
+  LEFT JOIN PaymentMethod pm 
+  ON ac.accountId = pm.accountId;
 END
 GO
 
@@ -95,7 +92,22 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE GetHats
+CREATE PROCEDURE GetPastSales
+AS
+BEGIN
+	SET NOCOUNT ON;
+  SELECT a.*, * 
+  FROM Sale s 
+  RIGHT JOIN SaleProduct sp 
+  ON s.saleId = sp.saleId 
+  RIGHT JOIN Product p 
+  ON sp.productId = productId 
+  RIGHT JOIN Account a 
+  ON s.accountId = a.accountId;
+END
+GO
+
+CREATE PROCEDURE GetProducts
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -103,13 +115,11 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'accessory')
-  AND clothingType = 'hat'
 	ORDER BY productId;
 END
 GO
 
-CREATE PROCEDURE GetKidsJackets
+CREATE PROCEDURE GetMensShirts
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -117,50 +127,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'kids' OR broadType = 'everybody')
-  AND clothingType = 'jacket'
-	ORDER BY productId;
-END
-GO
-
-CREATE PROCEDURE GetKidsPants
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT productId, name, broadType, clothingType,
-	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
-	FROM Product
-  WHERE (broadType = 'kids' OR broadType = 'everybody')
-  AND clothingType = 'pants'
-	ORDER BY productId;
-END
-GO
-
-CREATE PROCEDURE GetKidsShirts
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT productId, name, broadType, clothingType,
-	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
-	FROM Product
-  WHERE (broadType = 'kids' OR broadType = 'everybody')
+  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
   AND clothingType = 'shirt'
-	ORDER BY productId;
-END
-GO
-
-CREATE PROCEDURE GetKidsShorts
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT productId, name, broadType, clothingType,
-	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
-	FROM Product
-  WHERE (broadType = 'kids' OR broadType = 'everybody')
-  AND clothingType = 'shorts'
 	ORDER BY productId;
 END
 GO
@@ -173,7 +141,7 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everybody')
+  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
   AND clothingType = 'jacket'
 	ORDER BY productId;
 END
@@ -187,22 +155,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everybody')
+  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
   AND clothingType = 'pants'
-	ORDER BY productId;
-END
-GO
-
-CREATE PROCEDURE GetMensShirts
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT productId, name, broadType, clothingType,
-	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
-	FROM Product
-  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everybody')
-  AND clothingType = 'shirt'
 	ORDER BY productId;
 END
 GO
@@ -215,8 +169,134 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everybody')
+  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
   AND clothingType = 'shorts'
+	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetWomensShirts
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT productId, name, broadType, clothingType,
+	 price, numStars, sku, image, manufacturer, height,
+	length, width, weight, description
+	FROM Product
+  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
+  AND clothingType = 'shirt'
+	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetWomensJackets
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT productId, name, broadType, clothingType,
+	price, numStars, sku, image, manufacturer, height,
+	length, width, weight, description
+	FROM Product
+  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
+  AND clothingType = 'jacket'
+	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetWomensPants
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT productId, name, broadType, clothingType,
+	price, numStars, sku, image, manufacturer, height,
+	length, width, weight, description
+	FROM Product
+  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
+  AND clothingType = 'pants'
+	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetWomensShorts
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT productId, name, broadType, clothingType,
+	price, numStars, sku, image, manufacturer, height,
+	length, width, weight, description
+	FROM Product
+  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
+  AND clothingType = 'shorts'
+	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetKidsShirts
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT productId, name, broadType, clothingType,
+	price, numStars, sku, image, manufacturer, height,
+	length, width, weight, description
+	FROM Product
+  WHERE (broadType = 'kids' OR broadType = 'everyone' OR broadType = 'everybody')
+  AND clothingType = 'shirt'
+	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetKidsJackets
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT productId, name, broadType, clothingType,
+	price, numStars, sku, image, manufacturer, height,
+	length, width, weight, description
+	FROM Product
+  WHERE (broadType = 'kids' OR broadType = 'everyone' OR broadType = 'everybody')
+  AND clothingType = 'jacket'
+	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetKidsPants
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT productId, name, broadType, clothingType,
+	price, numStars, sku, image, manufacturer, height,
+	length, width, weight, description
+	FROM Product
+  WHERE (broadType = 'kids' OR broadType = 'everyone' OR broadType = 'everybody')
+  AND clothingType = 'pants'
+	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetKidsShorts
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT productId, name, broadType, clothingType,
+	price, numStars, sku, image, manufacturer, height,
+	length, width, weight, description
+	FROM Product
+  WHERE (broadType = 'kids' OR broadType = 'everyone' OR broadType = 'everybody')
+  AND clothingType = 'shorts'
+	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetBackpacks
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT productId, name, broadType, clothingType,
+	price, numStars, sku, image, manufacturer, height,
+	length, width, weight, description
+	FROM Product
+  WHERE (broadType = 'accessory')
+  AND clothingType = 'backpack'
 	ORDER BY productId;
 END
 GO
@@ -235,44 +315,6 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE GetPastSales
-AS
-BEGIN
-	SET NOCOUNT ON;
-  SELECT a.*, * 
-  FROM Sale s 
-  RIGHT JOIN SaleProduct sp 
-  ON s.saleId = sp.saleId 
-  RIGHT JOIN Product p 
-  ON sp.productId = productId 
-  RIGHT JOIN Account a 
-  ON s.accountId = a.accountId;
-END
-GO
-
-CREATE PROCEDURE GetPaymentMethods
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT ac.*, pm.* 
-  FROM Account ac 
-  LEFT JOIN PaymentMethod pm 
-  ON ac.accountId = pm.accountId;
-END
-GO
-
-CREATE PROCEDURE GetProducts
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT productId, name, broadType, clothingType,
-	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
-	FROM Product
-	ORDER BY productId;
-END
-GO
-
 CREATE PROCEDURE GetWatches
 AS
 BEGIN
@@ -287,7 +329,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE GetWomensJackets
+CREATE PROCEDURE GetHats
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -295,50 +337,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everybody')
-  AND clothingType = 'jacket'
-	ORDER BY productId;
-END
-GO
-
-CREATE PROCEDURE GetWomensPants
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT productId, name, broadType, clothingType,
-	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
-	FROM Product
-  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everybody')
-  AND clothingType = 'pants'
-	ORDER BY productId;
-END
-GO
-
-CREATE PROCEDURE GetWomensShirts
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT productId, name, broadType, clothingType,
-	 price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
-	FROM Product
-  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everybody')
-  AND clothingType = 'shirt'
-	ORDER BY productId;
-END
-GO
-
-CREATE PROCEDURE GetWomensShorts
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT productId, name, broadType, clothingType,
-	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
-	FROM Product
-  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everybody')
-  AND clothingType = 'shorts'
+  WHERE (broadType = 'accessory')
+  AND clothingType = 'hat'
 	ORDER BY productId;
 END
 GO

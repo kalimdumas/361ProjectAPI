@@ -1,7 +1,0 @@
-CREATE PROCEDURE GetAccounts
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT * 
-  FROM Account;
-END
