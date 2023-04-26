@@ -57,10 +57,10 @@ numStars     FLOAT(24),
 sku          VARCHAR(16),
 image        VARCHAR(2048),
 manufacturer VARCHAR(64) NOT NULL,
-height       FLOAT(24) NOT NULL,  /* centimeters */
-length       FLOAT(24) NOT NULL,  /* centimeters */
-width        FLOAT(24) NOT NULL,  /* centimeters */
-weight       FLOAT(24) NOT NULL,  /* kilograms */
+height       FLOAT(24) NOT NULL, --centimeters
+length       FLOAT(24) NOT NULL, --centimeters
+width        FLOAT(24) NOT NULL, --centimeters
+weight       FLOAT(24) NOT NULL, --kilograms
 description  VARCHAR(256)
 );
 
@@ -69,8 +69,8 @@ discountId   INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 name         VARCHAR(32) NOT NULL,
 startDate    DATE NOT NULL,
 endDate      DATE NOT NULL,
-/* VALUES below are mutually exclusive. */
-percentage   FLOAT,  /* 25, not 0.25 */
+--VALUES below are mutually exclusive.
+percentage   FLOAT, --25, not 0.25
 dollarAmount FLOAT
 );
 
@@ -241,4 +241,3 @@ INSERT INTO SaleProduct (saleId, productId, quantity) VALUES (2, 10, 1);
 INSERT INTO Sale (accountId) VALUES (8);
 INSERT INTO SaleProduct (saleId, productId, quantity) VALUES (3, 10, 2);
 INSERT INTO SaleProduct (saleId, productId, quantity) VALUES (3, 6, 2);
-
