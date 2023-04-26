@@ -60,8 +60,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -103,8 +101,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -146,8 +142,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -189,8 +183,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -232,8 +224,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -275,8 +265,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -318,8 +306,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -361,8 +347,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -404,8 +388,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -447,8 +429,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -490,8 +470,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -533,8 +511,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -576,8 +552,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -619,8 +593,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -662,8 +634,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -705,8 +675,6 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.category = reader.GetString(14);
-                        product.categoryDescription = reader.GetString(15);
 
                         products.Add(product);
                     }
@@ -736,8 +704,6 @@ public class Product
     public float  width               { get; set; }
     public float  weight              { get; set; }
     public string? description         { get; set; }
-    public string? category            { get; set; }
-    public string? categoryDescription { get; set; }
 }
 
 public class MensShirt    : Product{}
