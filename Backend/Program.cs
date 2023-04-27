@@ -694,15 +694,15 @@ public class Product
     public string? name                { get; set; }
     public string? broadType           { get; set; }
     public string? clothingType        { get; set; }
-    public float  price               { get; set; }
-    public float  numStars            { get; set; }
+    public float   price               { get; set; }
+    public float   numStars            { get; set; }
     public string? sku                 { get; set; }
     public string? image               { get; set; }
     public string? manufacturer        { get; set; }
-    public float  height              { get; set; }
-    public float  length              { get; set; }
-    public float  width               { get; set; }
-    public float  weight              { get; set; }
+    public float   height              { get; set; }
+    public float   length              { get; set; }
+    public float   width               { get; set; }
+    public float   weight              { get; set; }
     public string? description         { get; set; }
 }
 

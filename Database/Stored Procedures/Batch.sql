@@ -126,8 +126,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'shirt'
+  WHERE (broadType = 'men')
+  AND (clothingType = 'shirt' OR clothingType = 'shirts')
 	ORDER BY productId;
 END
 GO
@@ -140,8 +140,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'jacket'
+  WHERE (broadType = 'men')
+  AND (clothingType = 'jacket' OR clothingType = 'jackets')
 	ORDER BY productId;
 END
 GO
@@ -154,8 +154,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'pants'
+  WHERE (broadType = 'men')
+  AND (clothingType = 'pants')
 	ORDER BY productId;
 END
 GO
@@ -168,8 +168,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'men' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'shorts'
+  WHERE (broadType = 'men')
+  AND (clothingType = 'shorts')
 	ORDER BY productId;
 END
 GO
@@ -182,8 +182,8 @@ BEGIN
 	 price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'shirt'
+  WHERE (broadType = 'women')
+  AND (clothingType = 'shirt' OR clothingType = 'shirts')
 	ORDER BY productId;
 END
 GO
@@ -196,8 +196,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'jacket'
+  WHERE (broadType = 'women')
+  AND (clothingType = 'jacket' OR clothingType = 'jackets')
 	ORDER BY productId;
 END
 GO
@@ -210,8 +210,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'pants'
+  WHERE (broadType = 'women')
+  AND (clothingType = 'pants')
 	ORDER BY productId;
 END
 GO
@@ -224,8 +224,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'women' OR broadType = 'adults' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'shorts'
+  WHERE (broadType = 'women')
+  AND (clothingType = 'shorts')
 	ORDER BY productId;
 END
 GO
@@ -238,8 +238,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'kids' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'shirt'
+  WHERE (broadType = 'kids')
+  AND (clothingType = 'shirt' OR clothingType = 'shirts')
 	ORDER BY productId;
 END
 GO
@@ -252,8 +252,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'kids' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'jacket'
+  WHERE (broadType = 'kids')
+  AND (clothingType = 'jacket' OR clothingType = 'jackets')
 	ORDER BY productId;
 END
 GO
@@ -266,8 +266,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'kids' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'pants'
+  WHERE (broadType = 'kids')
+  AND (clothingType = 'pants')
 	ORDER BY productId;
 END
 GO
@@ -280,8 +280,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'kids' OR broadType = 'everyone' OR broadType = 'everybody')
-  AND clothingType = 'shorts'
+  WHERE (broadType = 'kids')
+  AND (clothingType = 'shorts')
 	ORDER BY productId;
 END
 GO
@@ -294,8 +294,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'accessory')
-  AND clothingType = 'backpack'
+  WHERE (broadType = 'accessory' OR broadType = 'accessories')
+  AND (clothingType = 'backpack' OR clothingType = 'backpacks')
 	ORDER BY productId;
 END
 GO
@@ -308,8 +308,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product p
-  WHERE (broadType = 'accessory')
-  AND clothingType = 'necklace'
+  WHERE (broadType = 'accessory' OR broadType = 'accessories')
+  AND (clothingType = 'necklace' OR clothingType = 'necklace')
 	ORDER BY productId;
 END
 GO
@@ -322,8 +322,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'accessory')
-  AND clothingType = 'watch'
+  WHERE (broadType = 'accessory' OR broadType = 'accessories')
+  AND (clothingType = 'watch' OR clothingType = 'watchs' OR clothingType = 'watches')
 	ORDER BY productId;
 END
 GO
@@ -336,8 +336,8 @@ BEGIN
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description
 	FROM Product
-  WHERE (broadType = 'accessory')
-  AND clothingType = 'hat'
+  WHERE (broadType = 'accessory' OR broadType = 'accessories')
+  AND (clothingType = 'hat' OR clothingType = 'hats')
 	ORDER BY productId;
 END
 GO
