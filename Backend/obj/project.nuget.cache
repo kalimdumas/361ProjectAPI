@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9inuchlZoXk+yPDUvdwI72L0+8O2HEyeZDBOk+LZUGsRYfgy8oVu7w9hEJWtH+6P7AGIVHS/IWXMzcvnyiLflg==",
+  "dgSpecHash": "nh7dmpqJSOy/aVh4nXVIb51rStAZDdl3MciPJCVYCKWs9HL6Ga56UNW69aCi2qnwInQBO1z5QDz7cDtZ/E1gPA==",
   "success": true,
-  "projectFilePath": "/workspaces/361ProjectAPI/Backend/Backend.csproj",
+  "projectFilePath": "/workspaces/361ProjectAPI/backend/Backend.csproj",
   "expectedPackageFiles": [
     "/home/vscode/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/home/vscode/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",

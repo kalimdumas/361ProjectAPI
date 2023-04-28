@@ -232,10 +232,10 @@ INSERT INTO Product (name, broadType, clothingType, price, numStars, sku, image,
 INSERT INTO Product (name, broadType, clothingType, price, numStars, sku, image, manufacturer, height, length, width, weight, description) VALUES ('NEW HERBIE! HUSKER BASEBALL HERBIE HERO CAP', 'accessory', 'hat', 29.99, 0.0, 'HT-G7152', 'https://www.bestofbigred.com/resize/Shared/Images/Product/NEW-HERBIE-Husker-Baseball-Herbie-Hero-Cap/HT-G7152.jpg?bw=1000&w=1000&bh=1000&h=1000', 'manufacturer', 13.48, 20.44, 16.58, 00.15, 'Scarlet EZA adjustable snapback hat. Features Herbie Husker with a baseball bat. 100% cotton twill. OSFA.');
 INSERT INTO Product (name, broadType, clothingType, price, numStars, sku, image, manufacturer, height, length, width, weight, description) VALUES ('New York Yankees New Era 2023 Spring Training Fitted Hat', 'accessory', 'hat', 29.99, 4.2, '4991352', 'https://fanatics.frgimages.com/new-york-yankees/mens-new-era-navy-new-york-yankees-2023-spring-training-59fifty-fitted-hat_ss5_p-4991352+pv-1+u-oajxizgg1fbrgzw7afsx+v-umk2jzisxtosb9xi2pon.jpg?_hv=2&w=900', 'manufacturer', 15.50, 21.00, 14.50, 00.12, 'Represent your favorite team with the same style the players wear. This New York Yankees 2023 Spring Training 59FIFTY Fitted Hat from New Era will make you feel like you''re taking the field with your favorite MLB stars every time you put it on. The sleek New York Yankees graphics are sure to help you stand out in any ballpark you step in this season.');
 
-INSERT INTO Sale (name, startDate, endDate, dollarAmount) VALUES ('2017 Christmas Socks Sale', '2017/12/01', '2017/12/31', 5.00);
-INSERT INTO Sale (name, startDate, endDate, percentage) VALUES ('Four and a half years', '2021/01/01', '2025/07/01', 15);
-INSERT INTO Sale (name, startDate, endDate, dollarAmount) VALUES ('2023 April Fools!', '2023/04/01', '2024/04/01', 4.2);
-INSERT INTO Sale (name, startDate, endDate, percentage) VALUES ('250th Independence Day Sale', '2026/06/04', '2026/07/04', 40);
+-- INSERT INTO Sale (name, startDate, endDate, dollarAmount) VALUES ('2017 Christmas Socks Sale', '2017/12/01', '2017/12/31', 5.00);
+-- INSERT INTO Sale (name, startDate, endDate, percentage) VALUES ('Four and a half years', '2021/01/01', '2025/07/01', 15);
+-- INSERT INTO Sale (name, startDate, endDate, dollarAmount) VALUES ('2023 April Fools!', '2023/04/01', '2024/04/01', 4.2);
+-- INSERT INTO Sale (name, startDate, endDate, percentage) VALUES ('250th Independence Day Sale', '2026/06/04', '2026/07/04', 40);
 
 --INSERT INTO SaleProduct (saleId, productId) VALUES ((SELECT saleId FROM Sale WHERE name = ''), (SELECT productId FROM Product WHERE name = ''));
 --INSERT INTO SaleProduct (saleId, productId) VALUES ((SELECT saleId FROM Sale WHERE name = ''), (SELECT productId FROM Product WHERE name = ''));

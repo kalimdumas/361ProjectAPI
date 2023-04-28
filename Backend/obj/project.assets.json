@@ -387,11 +387,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/workspaces/361ProjectAPI/Backend/Backend.csproj",
+      "projectUniqueName": "/workspaces/361ProjectAPI/backend/Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "/workspaces/361ProjectAPI/Backend/Backend.csproj",
+      "projectPath": "/workspaces/361ProjectAPI/backend/Backend.csproj",
       "packagesPath": "/home/vscode/.nuget/packages/",
-      "outputPath": "/workspaces/361ProjectAPI/Backend/obj/",
+      "outputPath": "/workspaces/361ProjectAPI/backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/vscode/.nuget/NuGet/NuGet.Config"
