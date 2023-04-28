@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/361ProjectAPI/backend/Backend.csproj": {}
+    "/workspaces/361ProjectAPI/Backend/Backend.csproj": {}
   },
   "projects": {
-    "/workspaces/361ProjectAPI/backend/Backend.csproj": {
+    "/workspaces/361ProjectAPI/Backend/Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/361ProjectAPI/backend/Backend.csproj",
+        "projectUniqueName": "/workspaces/361ProjectAPI/Backend/Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "/workspaces/361ProjectAPI/backend/Backend.csproj",
+        "projectPath": "/workspaces/361ProjectAPI/Backend/Backend.csproj",
         "packagesPath": "/home/vscode/.nuget/packages/",
-        "outputPath": "/workspaces/361ProjectAPI/backend/obj/",
+        "outputPath": "/workspaces/361ProjectAPI/Backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/vscode/.nuget/NuGet/NuGet.Config"
@@ -62,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
         }
       }
     }
