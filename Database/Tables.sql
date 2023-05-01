@@ -63,7 +63,7 @@ length       FLOAT(24) NOT NULL, --centimeters
 width        FLOAT(24) NOT NULL, --centimeters
 weight       FLOAT(24) NOT NULL, --kilograms
 description  VARCHAR(2048),
-isNewArrival BIT NOT NULL DEFAULT 0
+isNewArrival INT NOT NULL DEFAULT 0
 );
 
 CREATE TABLE Cart (
