@@ -15,6 +15,8 @@ GO
 GO
   DROP PROCEDURE IF EXISTS GetProducts
 GO
+  DROP PROCEDURE IF EXISTS GetNewArrivals
+GO
   DROP PROCEDURE IF EXISTS GetMensShirts
 GO
   DROP PROCEDURE IF EXISTS GetMensJackets
@@ -47,14 +49,13 @@ GO
 GO
   DROP PROCEDURE IF EXISTS GetHats
 GO
-  DROP PROCEDURE IF EXISTS GetNewArrivals
-GO
 
 CREATE PROCEDURE GetAccounts
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT * 
+	SELECT accountId, username, password,
+	firstName, lastName, email, phoneNumber
   FROM Account;
 END
 GO
@@ -63,7 +64,10 @@ CREATE PROCEDURE GetAddresses
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT ac.*, ad.* 
+	SELECT ac.accountId, ac.username, ac.password,
+	ac.firstName, ac.lastName, ac.email, ac.phoneNumber,
+	ad.addressId, ad.streetLineOne, ad.streetLineTwo,
+	ad.city, ad.state, ad.country, ad.zipCode
   FROM Account ac 
   Left JOIN Address ad 
   ON ac.accountId = ad.accountId;
@@ -74,7 +78,10 @@ CREATE PROCEDURE GetPaymentMethods
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT ac.*, pm.* 
+	SELECT ac.accountId, ac.username, ac.password,
+	ac.firstName, ac.lastName, ac.email, ac.phoneNumber,
+	pm.paymentMethodId, pm.cardNumber, pm.expDate,
+	pm.cvvNumber
   FROM Account ac 
   LEFT JOIN PaymentMethod pm 
   ON ac.accountId = pm.accountId;
@@ -85,7 +92,12 @@ CREATE PROCEDURE GetCarts
 AS
 BEGIN
 	SET NOCOUNT ON;
-  SELECT a.*, p.* 
+  SELECT a.accountId, a.username, a.password,
+	a.firstName, a.lastName, a.email, a.phoneNumber,
+	c.cartId, cp.cartProductId, cp.quantity, p.productId,
+	p.name, p.broadType, p.clothingType, p.price,
+	p.numStars, p.sku, p.image, p.manufacturer, p.height,
+	p.length, p.width, p.weight, p.description, p.isNewArrival
   FROM Cart c 
   RIGHT JOIN CartProduct cp 
   ON c.cartId = cp.cartId 
@@ -100,11 +112,17 @@ CREATE PROCEDURE GetSales
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT s.*, sp.*
+	SELECT s.saleId, sp.saleProductId, sp.productId, 
+  s.name, s.startDate, s.endDate, s.percentage, 
+  s.dollarAmount, p.name, p.broadType, p.clothingType,
+	p.price, p.numStars, p.sku, p.image, p.manufacturer, p.height,
+	p.length, p.width, p.weight, p.description, p.isNewArrival
   FROM Sale s
-	JOIN SaleProduct sp
+	LEFT JOIN SaleProduct sp
 	ON s.saleId = sp.saleId
-	GROUP BY s.saleId
+  LEFT JOIN Product p
+	ON sp.productId = p.productId
+	ORDER BY s.saleId, sp.saleProductId, p.productId
 END
 GO
 
@@ -117,6 +135,19 @@ BEGIN
 	length, width, weight, description, isNewArrival
   FROM Product
 	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetNewArrivals
+AS
+BEGIN
+  SET NOCOUNT ON;
+  SELECT productId, name, broadType, clothingType,
+  price, numStars, sku, image, manufacturer, height,
+  length, width, weight, description, isNewArrival
+  FROM Product
+  WHERE (isNewArrival = 1)
+  ORDER BY productId;
 END
 GO
 
@@ -341,18 +372,5 @@ BEGIN
   WHERE (broadType = 'accessory' OR broadType = 'accessories')
   AND (clothingType = 'hat' OR clothingType = 'hats')
 	ORDER BY productId;
-END
-GO
-
-CREATE PROCEDURE GetNewArrivals
-AS
-BEGIN
-  SET NOCOUNT ON;
-  SELECT productId, name, broadType, clothingType,
-  price, numStars, sku, image, manufacturer, height,
-  length, width, weight, description, isNewArrival
-  FROM Product
-  WHERE (isNewArrival = 1)
-  ORDER BY productId;
 END
 GO
