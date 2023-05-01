@@ -96,12 +96,12 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE GetSales --As in discounted products
+CREATE PROCEDURE GetSales
 AS
 BEGIN
 	SET NOCOUNT ON;
 	SELECT s.*, sp.*
-	FROM Sale s
+  FROM Sale s
 	JOIN SaleProduct sp
 	ON s.saleId = sp.saleId
 	GROUP BY s.saleId
@@ -115,7 +115,7 @@ BEGIN
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
 	length, width, weight, description, isNewArrival
-	FROM Product
+  FROM Product
 	ORDER BY productId;
 END
 GO
@@ -347,12 +347,12 @@ GO
 CREATE PROCEDURE GetNewArrivals
 AS
 BEGIN
-	SET NOCOUNT ON;
-	SELECT productId, name, broadType, clothingType,
-	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description, isNewArrival
-	FROM Product
-  WHERE (isNewArrival = TRUE)
-	ORDER BY productId;
+  SET NOCOUNT ON;
+  SELECT productId, name, broadType, clothingType,
+  price, numStars, sku, image, manufacturer, height,
+  length, width, weight, description, isNewArrival
+  FROM Product
+  WHERE (isNewArrival = 1)
+  ORDER BY productId;
 END
 GO

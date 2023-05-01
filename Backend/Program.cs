@@ -60,7 +60,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -102,7 +103,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -144,7 +146,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -186,7 +189,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -228,7 +232,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -270,7 +275,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -312,7 +318,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -354,7 +361,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -396,7 +404,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -438,7 +447,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -480,7 +490,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -522,7 +533,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -564,7 +576,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -606,7 +619,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -648,7 +662,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -690,7 +705,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
@@ -732,7 +748,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        product.isNewArrival = reader.GetBoolean(14);
+                        if (reader.GetBoolean(14) == 1) {product.isNewArrival = True;}
+                        else {product.isNewArrival = False;}
 
                         products.Add(product);
                     }
