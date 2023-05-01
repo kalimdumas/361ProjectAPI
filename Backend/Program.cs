@@ -60,6 +60,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -101,6 +102,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -142,6 +144,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -183,6 +186,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -224,6 +228,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -265,6 +270,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -306,6 +312,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -347,6 +354,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -388,6 +396,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -429,6 +438,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -470,6 +480,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -511,6 +522,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -552,6 +564,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -593,6 +606,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -634,6 +648,7 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
@@ -675,12 +690,55 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
 
                         products.Add(product);
                     }
                 }
             }
+        
+            return products;
+        });
+        
+        app.MapGet("/home-page", async (HttpContext httpContext) =>
+        {
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
+            List<Product> products = new List<Product>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("GetNewArrivals", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                await connection.OpenAsync();
+
+                using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        Product product = new Product();
+                        product.id = reader.GetInt32(0);
+                        product.name = reader.GetString(1);
+                        product.broadType = reader.GetString(2);
+                        product.clothingType = reader.GetString(3);
+                        product.price = reader.GetFloat(4);
+                        product.numStars = reader.GetFloat(5);
+                        product.sku = reader.GetString(6);
+                        product.image = reader.GetString(7);
+                        product.manufacturer = reader.GetString(8);
+                        product.height = reader.GetFloat(9);
+                        product.length = reader.GetFloat(10);
+                        product.width = reader.GetFloat(11);
+                        product.weight = reader.GetFloat(12);
+                        product.description = reader.GetString(13);
+                        product.isNewArrival = reader.GetBoolean(14);
+
+                        products.Add(product);
+                    }
+                }
+            }
+        
             return products;
         });
 
@@ -690,20 +748,21 @@ public class Program
 
 public class Product
 {
-    public int     id                  { get; set; }
-    public string? name                { get; set; }
-    public string? broadType           { get; set; }
-    public string? clothingType        { get; set; }
-    public float   price               { get; set; }
-    public float   numStars            { get; set; }
-    public string? sku                 { get; set; }
-    public string? image               { get; set; }
-    public string? manufacturer        { get; set; }
-    public float   height              { get; set; }
-    public float   length              { get; set; }
-    public float   width               { get; set; }
-    public float   weight              { get; set; }
-    public string? description         { get; set; }
+    public int      id           { get; set; }
+    public string?  name         { get; set; }
+    public string?  broadType    { get; set; }
+    public string?  clothingType { get; set; }
+    public float    price        { get; set; }
+    public float    numStars     { get; set; }
+    public string?  sku          { get; set; }
+    public string?  image        { get; set; }
+    public string?  manufacturer { get; set; }
+    public float    height       { get; set; }
+    public float    length       { get; set; }
+    public float    width        { get; set; }
+    public float    weight       { get; set; }
+    public string?  description  { get; set; }
+    public boolean? isNewArrival { get; set; }
 }
 
 public class MensShirt    : Product{}
