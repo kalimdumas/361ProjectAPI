@@ -24,7 +24,8 @@ password    VARCHAR(32) NOT NULL,
 firstName   VARCHAR(32) NOT NULL,
 lastName    VARCHAR(32) NOT NULL,
 email       VARCHAR(128) NOT NULL,
-phoneNumber VARCHAR(16)
+phoneNumber VARCHAR(16),
+isLoggedIn  INT NOT NULL DEFAULT 0
 );
 
 CREATE TABLE Address (

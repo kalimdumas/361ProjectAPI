@@ -1,7 +1,10 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using System.Data;
 using System.Data.SqlClient;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace ExampleAPI;
 
@@ -60,8 +63,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -103,8 +106,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -146,8 +149,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -189,8 +192,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -232,8 +235,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -275,8 +278,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -318,8 +321,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -361,8 +364,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -404,8 +407,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -447,8 +450,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -490,8 +493,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -533,8 +536,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -576,8 +579,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -619,8 +622,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -662,8 +665,8 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
@@ -705,17 +708,17 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
                 }
             }
-        
+
             return products;
         });
-        
+
         app.MapGet("/home-page", async (HttpContext httpContext) =>
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
@@ -748,16 +751,38 @@ public class Program
                         product.width = reader.GetFloat(11);
                         product.weight = reader.GetFloat(12);
                         product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
                         products.Add(product);
                     }
                 }
             }
-        
+
             return products;
         });
+
+        // app.MapPost("/login", async (HttpContext httpContext) =>
+        // {
+        //     var isLoggedIn = await Request.ReadFromJsonAsync<int>();
+
+        //     string? connectionString = builder.Configuration.GetConnectionString("local_database");
+
+        //     using (SqlConnection connection = new SqlConnection(connectionString))
+        //     {
+        //         SqlCommand command = new SqlCommand("LogIn", connection);
+        //         command.CommandType = CommandType.StoredProcedure;
+
+        //         await connection.OpenAsync();
+
+        //         command.Parameters.AddWithValue("@LogIn", isLoggedIn);
+
+        //         await command.ExecuteNonQueryAsync();
+
+        //         return Results.Ok("login successful");
+
+        //     }
+        // });
 
         /* Uncomment for the sales page and make sure to change the /sales to whatever the page is called
         app.MapGet("/sales", async (HttpContext httpContext) =>
@@ -810,36 +835,36 @@ public class Program
 
 public class Product
 {
-    public int     id           { get; set; }
-    public string? name         { get; set; }
-    public string? broadType    { get; set; }
+    public int id { get; set; }
+    public string? name { get; set; }
+    public string? broadType { get; set; }
     public string? clothingType { get; set; }
-    public float   price        { get; set; }
-    public float   numStars     { get; set; }
-    public string? sku          { get; set; }
-    public string? image        { get; set; }
+    public float price { get; set; }
+    public float numStars { get; set; }
+    public string? sku { get; set; }
+    public string? image { get; set; }
     public string? manufacturer { get; set; }
-    public float   height       { get; set; }
-    public float   length       { get; set; }
-    public float   width        { get; set; }
-    public float   weight       { get; set; }
-    public string? description  { get; set; }
-    public bool?   isNewArrival { get; set; }
+    public float height { get; set; }
+    public float length { get; set; }
+    public float width { get; set; }
+    public float weight { get; set; }
+    public string? description { get; set; }
+    public bool? isNewArrival { get; set; }
 }
 
-public class MensShirt    : Product{}
-public class MensJacket   : Product{}
-public class MensPants    : Product{}
-public class MensShorts   : Product{}
-public class WomensShirt  : Product{}
-public class WomensJacket : Product{}
-public class WomensPants  : Product{}
-public class WomensShorts : Product{}
-public class KidsShirt    : Product{}
-public class KidsJacket   : Product{}
-public class KidsPants    : Product{}
-public class KidsShorts   : Product{}
-public class Backpack     : Product{}
-public class Necklace     : Product{}
-public class Watch        : Product{}
-public class Hat          : Product{}
+public class MensShirt : Product { }
+public class MensJacket : Product { }
+public class MensPants : Product { }
+public class MensShorts : Product { }
+public class WomensShirt : Product { }
+public class WomensJacket : Product { }
+public class WomensPants : Product { }
+public class WomensShorts : Product { }
+public class KidsShirt : Product { }
+public class KidsJacket : Product { }
+public class KidsPants : Product { }
+public class KidsShorts : Product { }
+public class Backpack : Product { }
+public class Necklace : Product { }
+public class Watch : Product { }
+public class Hat : Product { }

@@ -88,6 +88,17 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE LogIn 
+@isLoggedIn INT,
+@state INT,
+@accountId INT
+AS
+BEGIN
+	UPDATE Account SET @isLoggedIn = @state
+	WHERE accountId = @accountId
+END
+GO
+
 CREATE PROCEDURE GetCarts
 AS
 BEGIN

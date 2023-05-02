@@ -31,3 +31,12 @@
 /workspaces/361ProjectAPI/Backend/obj/Debug/net7.0/Backend.pdb
 /workspaces/361ProjectAPI/Backend/obj/Debug/net7.0/Backend.genruntimeconfig.cache
 /workspaces/361ProjectAPI/Backend/obj/Debug/net7.0/ref/Backend.dll
+/Users/kalimdumas/Desktop/Classes/CSCE/CSCE361/361ProjectAPI/Backend/obj/Debug/net7.0/Backend.csproj.AssemblyReference.cache
+/Users/kalimdumas/Desktop/Classes/CSCE/CSCE361/361ProjectAPI/Backend/obj/Debug/net7.0/Backend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kalimdumas/Desktop/Classes/CSCE/CSCE361/361ProjectAPI/Backend/obj/Debug/net7.0/Backend.AssemblyInfoInputs.cache
+/Users/kalimdumas/Desktop/Classes/CSCE/CSCE361/361ProjectAPI/Backend/obj/Debug/net7.0/Backend.AssemblyInfo.cs
+/Users/kalimdumas/Desktop/Classes/CSCE/CSCE361/361ProjectAPI/Backend/obj/Debug/net7.0/Backend.csproj.CoreCompileInputs.cache
+/Users/kalimdumas/Desktop/Classes/CSCE/CSCE361/361ProjectAPI/Backend/obj/Debug/net7.0/Backend.MvcApplicationPartsAssemblyInfo.cache
+/Users/kalimdumas/Desktop/Classes/CSCE/CSCE361/361ProjectAPI/Backend/obj/Debug/net7.0/Backend.dll
+/Users/kalimdumas/Desktop/Classes/CSCE/CSCE361/361ProjectAPI/Backend/obj/Debug/net7.0/refint/Backend.dll
+/Users/kalimdumas/Desktop/Classes/CSCE/CSCE361/361ProjectAPI/Backend/obj/Debug/net7.0/Backend.pdb
