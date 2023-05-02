@@ -15,6 +15,8 @@ GO
 GO
   DROP PROCEDURE IF EXISTS GetProducts
 GO
+  DROP PROCEDURE IF EXISTS GetNewArrivals
+GO
   DROP PROCEDURE IF EXISTS GetMensShirts
 GO
   DROP PROCEDURE IF EXISTS GetMensJackets
@@ -52,7 +54,8 @@ CREATE PROCEDURE GetAccounts
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT * 
+	SELECT accountId, username, password,
+	firstName, lastName, email, phoneNumber
   FROM Account;
 END
 GO
@@ -61,7 +64,10 @@ CREATE PROCEDURE GetAddresses
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT ac.*, ad.* 
+	SELECT ac.accountId, ac.username, ac.password,
+	ac.firstName, ac.lastName, ac.email, ac.phoneNumber,
+	ad.addressId, ad.streetLineOne, ad.streetLineTwo,
+	ad.city, ad.state, ad.country, ad.zipCode
   FROM Account ac 
   Left JOIN Address ad 
   ON ac.accountId = ad.accountId;
@@ -72,7 +78,10 @@ CREATE PROCEDURE GetPaymentMethods
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT ac.*, pm.* 
+	SELECT ac.accountId, ac.username, ac.password,
+	ac.firstName, ac.lastName, ac.email, ac.phoneNumber,
+	pm.paymentMethodId, pm.cardNumber, pm.expDate,
+	pm.cvvNumber
   FROM Account ac 
   LEFT JOIN PaymentMethod pm 
   ON ac.accountId = pm.accountId;
@@ -83,7 +92,12 @@ CREATE PROCEDURE GetCarts
 AS
 BEGIN
 	SET NOCOUNT ON;
-  SELECT a.*, p.* 
+  SELECT a.accountId, a.username, a.password,
+	a.firstName, a.lastName, a.email, a.phoneNumber,
+	c.cartId, cp.cartProductId, cp.quantity, p.productId,
+	p.name, p.broadType, p.clothingType, p.price,
+	p.numStars, p.sku, p.image, p.manufacturer, p.height,
+	p.length, p.width, p.weight, p.description, p.isNewArrival
   FROM Cart c 
   RIGHT JOIN CartProduct cp 
   ON c.cartId = cp.cartId 
@@ -94,15 +108,21 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE GetSales --As in discounted products
+CREATE PROCEDURE GetSales
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT s.*, sp.*
-	FROM Sale s
-	JOIN SaleProduct sp
+	SELECT s.saleId, sp.saleProductId, sp.productId, 
+  s.name, s.startDate, s.endDate, s.percentage, 
+  s.dollarAmount, p.name, p.broadType, p.clothingType,
+	p.price, p.numStars, p.sku, p.image, p.manufacturer, p.height,
+	p.length, p.width, p.weight, p.description, p.isNewArrival
+  FROM Sale s
+	LEFT JOIN SaleProduct sp
 	ON s.saleId = sp.saleId
-	GROUP BY s.saleId
+  LEFT JOIN Product p
+	ON sp.productId = p.productId
+	ORDER BY s.saleId, sp.saleProductId, p.productId
 END
 GO
 
@@ -112,9 +132,22 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
-	FROM Product
+	length, width, weight, description, isNewArrival
+  FROM Product
 	ORDER BY productId;
+END
+GO
+
+CREATE PROCEDURE GetNewArrivals
+AS
+BEGIN
+  SET NOCOUNT ON;
+  SELECT productId, name, broadType, clothingType,
+  price, numStars, sku, image, manufacturer, height,
+  length, width, weight, description, isNewArrival
+  FROM Product
+  WHERE (isNewArrival = 1)
+  ORDER BY productId;
 END
 GO
 
@@ -124,7 +157,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'men')
   AND (clothingType = 'shirt' OR clothingType = 'shirts')
@@ -138,7 +171,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'men')
   AND (clothingType = 'jacket' OR clothingType = 'jackets')
@@ -152,7 +185,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'men')
   AND (clothingType = 'pants')
@@ -166,7 +199,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'men')
   AND (clothingType = 'shorts')
@@ -180,7 +213,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	 price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'women')
   AND (clothingType = 'shirt' OR clothingType = 'shirts')
@@ -194,7 +227,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'women')
   AND (clothingType = 'jacket' OR clothingType = 'jackets')
@@ -208,7 +241,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'women')
   AND (clothingType = 'pants')
@@ -222,7 +255,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'women')
   AND (clothingType = 'shorts')
@@ -236,7 +269,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'kids')
   AND (clothingType = 'shirt' OR clothingType = 'shirts')
@@ -250,7 +283,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'kids')
   AND (clothingType = 'jacket' OR clothingType = 'jackets')
@@ -264,7 +297,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'kids')
   AND (clothingType = 'pants')
@@ -278,7 +311,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'kids')
   AND (clothingType = 'shorts')
@@ -292,7 +325,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'accessory' OR broadType = 'accessories')
   AND (clothingType = 'backpack' OR clothingType = 'backpacks')
@@ -306,7 +339,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product p
   WHERE (broadType = 'accessory' OR broadType = 'accessories')
   AND (clothingType = 'necklace' OR clothingType = 'necklace')
@@ -320,7 +353,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'accessory' OR broadType = 'accessories')
   AND (clothingType = 'watch' OR clothingType = 'watchs' OR clothingType = 'watches')
@@ -334,7 +367,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description
+	length, width, weight, description, isNewArrival
 	FROM Product
   WHERE (broadType = 'accessory' OR broadType = 'accessories')
   AND (clothingType = 'hat' OR clothingType = 'hats')
