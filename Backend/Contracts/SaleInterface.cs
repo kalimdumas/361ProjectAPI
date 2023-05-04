@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace OnlineStore.Contracts
+namespace Contracts
 {
     interface SaleInterface
     {
@@ -8,9 +8,9 @@ namespace OnlineStore.Contracts
         public int? id { get; set; }
         
         [DataMember]
-        public string? startDate { get; set; }
+        public DateTime? startDate { get; set; }
 
         [DataMember]
-        public string? endDate { get; set; }
+        public DateTime? endDate { get; set; }
     }
 }

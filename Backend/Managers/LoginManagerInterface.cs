@@ -1,7 +1,6 @@
-﻿using OnlineStore.Contracts;
-using System.Runtime.Serialization;
+﻿using Contracts;
 
-namespace OnlineStore.Managers
+namespace Backend.Managers
 {
     interface LoginManagerInterface
     {

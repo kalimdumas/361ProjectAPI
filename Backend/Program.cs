@@ -1,12 +1,8 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using System.Data;
 using System.Data.SqlClient;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Http;
+using Engines;
 
-namespace ExampleAPI;
+namespace Backend;
 
 public class Program
 {
@@ -736,7 +732,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        Product product = new Product();
+                        Hat product = new Hat();
                         product.id = reader.GetInt32(0);
                         product.name = reader.GetString(1);
                         product.broadType = reader.GetString(2);
@@ -781,15 +777,14 @@ public class Program
 
         //         return Results.Ok("login successful");
 
-        //     }
+        //     }d
         // });
 
-        /* Uncomment for the sales page and make sure to change the /sales to whatever the page is called
         app.MapGet("/sales", async (HttpContext httpContext) =>
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<Product> products = new List<Product>();
+            List<Tuple<Product, Sale>> productsAndTheirSale = new List<Tuple<Product, Sale>>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -803,31 +798,47 @@ public class Program
                     while (await reader.ReadAsync())
                     {
                         Product product = new Product();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) {product.isNewArrival = true;}
-                        else {product.isNewArrival = false;}
+                        Sale sale = new Sale();
+                        sale.id = reader.GetInt32(0);
+                        int saleProductId = reader.GetInt32(1);
+                        product.id = reader.GetInt32(2);
+                        sale.name = reader.GetString(3);
+                        sale.startDate = reader.GetDateTime(4);
+                        sale.endDate = reader.GetDateTime(5);
+                        sale.discount = reader.GetDouble(6);
+                        sale.isPercentDiscount = Convert.ToBoolean(reader.GetDouble(7));
+                        product.name = reader.GetString(8);
+                        product.broadType = reader.GetString(9);
+                        product.clothingType = reader.GetString(10);
+                        product.price = reader.GetFloat(11);
+                        product.numStars = reader.GetFloat(12);
+                        product.sku = reader.GetString(13);
+                        product.image = reader.GetString(14);
+                        product.manufacturer = reader.GetString(15);
+                        product.height = reader.GetFloat(16);
+                        product.length = reader.GetFloat(17);
+                        product.width = reader.GetFloat(18);
+                        product.weight = reader.GetFloat(19);
+                        product.description = reader.GetString(20);
+                        if (reader.GetInt32(21) == 1) { product.isNewArrival = true; }
+                        else { product.isNewArrival = false; }
 
-                        products.Add(product);
+                        productsAndTheirSale.Add(new Tuple<Product, Sale>(product, sale));
                     }
                 }
             }
-        
-            return products;
+
+            return productsAndTheirSale;
         });
-        */
+
+        CartEngine cartEngine = new CartEngine();
+        app.MapGet("/apply-sale", (double originalPrice, double salePercentage, double dollarAmount) =>
+        {
+            double newPrice = cartEngine.applySale(originalPrice, salePercentage, dollarAmount);
+            return newPrice;
+        });
+
+
 
         app.Run();
     }
@@ -850,6 +861,17 @@ public class Product
     public float weight { get; set; }
     public string? description { get; set; }
     public bool? isNewArrival { get; set; }
+}
+
+public class Sale
+{
+    public string? name { get; set; }
+    public int? id { get; set; }
+    public DateTime? startDate { get; set; }
+    public DateTime? endDate { get; set; }
+    public double discount { get; set; }
+    public bool isPercentDiscount { get; set; }
+    public List<Product>? saleProducts { get; set; }
 }
 
 public class MensShirt : Product { }

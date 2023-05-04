@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace OnlineStore.Contracts
+namespace Contracts
 {
     [DataContract]
     public class Product

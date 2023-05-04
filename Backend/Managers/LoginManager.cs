@@ -1,6 +1,6 @@
-﻿using OnlineStore.Contracts;
+﻿using Contracts;
 
-namespace OnlineStore.Managers
+namespace Backend.Managers
 {
 
     /* Verifies input pair username and password

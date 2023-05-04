@@ -124,8 +124,7 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 	SELECT s.saleId, sp.saleProductId, sp.productId, 
-  s.name, s.startDate, s.endDate, s.percentage, 
-  s.dollarAmount, p.name, p.broadType, p.clothingType,
+  s.name, s.startDate, s.endDate, s.discount, s.isPercentDiscount, p.name, p.broadType, p.clothingType,
 	p.price, p.numStars, p.sku, p.image, p.manufacturer, p.height,
 	p.length, p.width, p.weight, p.description, p.isNewArrival
   FROM Sale s

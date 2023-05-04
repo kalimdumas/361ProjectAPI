@@ -1,6 +1,7 @@
 ﻿using System.Runtime.Serialization;
+using Backend;
 
-namespace OnlineStore.Contracts
+namespace Contracts
 {
     [DataContract]
     public class User

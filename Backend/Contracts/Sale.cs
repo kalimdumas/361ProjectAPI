@@ -1,22 +1,25 @@
 ﻿using System.Runtime.Serialization;
 
-namespace OnlineStore.Contracts
+namespace Contracts
 {
     [DataContract]
-    public class PercentProductSale : SaleInterface
+    public class Sale : SaleInterface
     {
 
         [DataMember]
         public int? id { get; set; }
         
         [DataMember]
-        public string? startDate { get; set; }
+        public DateTime? startDate { get; set; }
 
         [DataMember]
-        public string? endDate { get; set; }
+        public DateTime? endDate { get; set; }
 
         [DataMember]
-        public double percentOff { get; set; }
+        public double discount { get; set; }
+
+        [DataMember]
+        public bool isPercentDiscount { get; set; }
 
         [DataMember]
         public List<Product>? saleProducts { get; set; }

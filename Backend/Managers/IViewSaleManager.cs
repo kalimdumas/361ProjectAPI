@@ -1,6 +1,4 @@
-using System.Runtime.Serialization;
-
-namespace OnlineStore.Contracts
+namespace Backend.Managers
 {
     public interface IViewSaleManager
     {
