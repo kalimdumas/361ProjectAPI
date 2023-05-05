@@ -806,7 +806,7 @@ public class Program
                         sale.startDate = reader.GetDateTime(4);
                         sale.endDate = reader.GetDateTime(5);
                         sale.discount = reader.GetDouble(6);
-                        sale.isPercentDiscount = Convert.ToBoolean(reader.GetDouble(7));
+                        sale.isPercentDiscount = Convert.ToBoolean(reader.GetInt32(7));
                         product.name = reader.GetString(8);
                         product.broadType = reader.GetString(9);
                         product.clothingType = reader.GetString(10);

@@ -235,8 +235,8 @@ INSERT INTO Product (name, broadType, clothingType, price, numStars, sku, image,
 INSERT INTO Product (name, broadType, clothingType, price, numStars, sku, image, manufacturer, height, length, width, weight, description) VALUES ('New York Yankees New Era 2023 Spring Training Fitted Hat', 'accessory', 'hat', 29.99, 4.2, '4991352', 'https://fanatics.frgimages.com/new-york-yankees/mens-new-era-navy-new-york-yankees-2023-spring-training-59fifty-fitted-hat_ss5_p-4991352+pv-1+u-oajxizgg1fbrgzw7afsx+v-umk2jzisxtosb9xi2pon.jpg?_hv=2&w=900', 'manufacturer', 15.50, 21.00, 14.50, 00.12, 'Represent your favorite team with the same style the players wear. This New York Yankees 2023 Spring Training 59FIFTY Fitted Hat from New Era will make you feel like you''re taking the field with your favorite MLB stars every time you put it on. The sleek New York Yankees graphics are sure to help you stand out in any ballpark you step in this season.');
 
 INSERT INTO Sale (name, startDate, endDate, discount, isPercentDiscount) VALUES ('Kickoff sale for the NEW HERBIE!', '2023/04/22', '2024/04/22', 15, 1);
-INSERT INTO Sale (name, startDate, endDate, discount, isPercentDiscount) VALUES ('2023 April Fools!', '2023/04/01', '2024/04/01', 4.20, 0);
-INSERT INTO Sale (name, startDate, endDate, discount, isPercentDiscount) VALUES ('250th Independence Day Sale', '2021/06/04', '2026/07/04', 5, 1);
+INSERT INTO Sale (name, startDate, endDate, discount, isPercentDiscount) VALUES ('2023 April Fools!', '2023/04/01', '2024/04/01', 420.00, 0);
+INSERT INTO Sale (name, startDate, endDate, discount, isPercentDiscount) VALUES ('250th Independence Day Sale', '2021/06/04', '2026/07/04', 10, 1);
 INSERT INTO Sale (name, startDate, endDate, discount, isPercentDiscount) VALUES ('Back to school sale!', '2023/5/01', '2023/08/31', 20, 1);
 
 INSERT INTO SaleProduct (saleId, productId) VALUES ((SELECT saleId FROM Sale WHERE name = 'Kickoff sale for the NEW HERBIE!'), (SELECT productId FROM Product WHERE name = 'NEW HERBIE! HUSKER BASEBALL HERBIE HERO CAP'));

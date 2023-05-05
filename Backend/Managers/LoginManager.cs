@@ -19,8 +19,8 @@ namespace Backend.Managers
 
         public User verifyUser(User user)
         {
-            string username = user.username;
-            string password = user.password;
+            // string username = user.username;
+            // string password = user.password;
 
             // TODO: Get user by username and verify password
             
