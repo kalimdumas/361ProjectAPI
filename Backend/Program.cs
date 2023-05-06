@@ -797,32 +797,39 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
+                        // s.saleId, s.name, s.startDate, s.endDate, 
+                        // s.discount, s.isPercentDiscount, p.productId, p.name, p.broadType, p.clothingType,
+                        // p.price, p.numStars, p.sku, p.image, p.manufacturer, p.height,
+                        // p.length, p.width, p.weight, p.description, p.isNewArrival, p.saleId
+
                         Product product = new Product();
                         Sale sale = new Sale();
                         sale.id = reader.GetInt32(0);
-                        int saleProductId = reader.GetInt32(1);
-                        product.id = reader.GetInt32(2);
-                        sale.name = reader.GetString(3);
-                        sale.startDate = reader.GetDateTime(4);
-                        sale.endDate = reader.GetDateTime(5);
-                        sale.discount = reader.GetDouble(6);
-                        sale.isPercentDiscount = Convert.ToBoolean(reader.GetInt32(7));
-                        product.name = reader.GetString(8);
-                        product.broadType = reader.GetString(9);
-                        product.clothingType = reader.GetString(10);
-                        product.price = reader.GetFloat(11);
-                        product.numStars = reader.GetFloat(12);
-                        product.sku = reader.GetString(13);
-                        product.image = reader.GetString(14);
-                        product.manufacturer = reader.GetString(15);
-                        product.height = reader.GetFloat(16);
-                        product.length = reader.GetFloat(17);
-                        product.width = reader.GetFloat(18);
-                        product.weight = reader.GetFloat(19);
-                        product.description = reader.GetString(20);
-                        if (reader.GetInt32(21) == 1) { product.isNewArrival = true; }
+                        sale.name = reader.GetString(1);
+                        sale.startDate = reader.GetDateTime(2);
+                        sale.endDate = reader.GetDateTime(3);
+                        sale.discount = reader.GetDouble(4);
+                        sale.isPercentDiscount = Convert.ToBoolean(reader.GetInt32(5));
+                        product.id = reader.GetInt32(6);
+                        product.name = reader.GetString(7);
+                        product.broadType = reader.GetString(8);
+                        product.clothingType = reader.GetString(9);
+                        product.price = reader.GetFloat(10);
+                        product.numStars = reader.GetFloat(11);
+                        product.sku = reader.GetString(12);
+                        product.image = reader.GetString(13);
+                        product.manufacturer = reader.GetString(14);
+                        product.height = reader.GetFloat(15);
+                        product.length = reader.GetFloat(16);
+                        product.width = reader.GetFloat(17);
+                        product.weight = reader.GetFloat(18);
+                        product.description = reader.GetString(19);
+                        if (reader.GetInt32(20) == 1) { product.isNewArrival = true; }
                         else { product.isNewArrival = false; }
-
+                        product.saleId = null;
+                        if (!reader.IsDBNull(reader.GetOrdinal("saleId"))) {
+                            product.saleId = reader.GetInt32(reader.GetOrdinal("saleId")); 
+                        }
                         productsAndTheirSale.Add(new Tuple<Product, Sale>(product, sale));
                     }
                 }
@@ -861,6 +868,7 @@ public class Product
     public float weight { get; set; }
     public string? description { get; set; }
     public bool? isNewArrival { get; set; }
+    public int? saleId { get; set; }
 }
 
 public class Sale
@@ -871,7 +879,6 @@ public class Sale
     public DateTime? endDate { get; set; }
     public double discount { get; set; }
     public bool isPercentDiscount { get; set; }
-    public List<Product>? saleProducts { get; set; }
 }
 
 public class MensShirt : Product { }

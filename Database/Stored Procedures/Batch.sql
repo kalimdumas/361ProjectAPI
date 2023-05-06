@@ -50,89 +50,87 @@ GO
   DROP PROCEDURE IF EXISTS GetHats
 GO
 
-CREATE PROCEDURE GetAccounts
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT accountId, username, password,
-	firstName, lastName, email, phoneNumber
-  FROM Account;
-END
-GO
+-- CREATE PROCEDURE GetAccounts
+-- AS
+-- BEGIN
+-- 	SET NOCOUNT ON;
+-- 	SELECT accountId, username, password,
+-- 	firstName, lastName, email, phoneNumber
+--   FROM Account;
+-- END
+-- GO
 
-CREATE PROCEDURE GetAddresses
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT ac.accountId, ac.username, ac.password,
-	ac.firstName, ac.lastName, ac.email, ac.phoneNumber,
-	ad.addressId, ad.streetLineOne, ad.streetLineTwo,
-	ad.city, ad.state, ad.country, ad.zipCode
-  FROM Account ac 
-  Left JOIN Address ad 
-  ON ac.accountId = ad.accountId;
-END
-GO
+-- CREATE PROCEDURE GetAddresses
+-- AS
+-- BEGIN
+-- 	SET NOCOUNT ON;
+-- 	SELECT ac.accountId, ac.username, ac.password,
+-- 	ac.firstName, ac.lastName, ac.email, ac.phoneNumber,
+-- 	ad.addressId, ad.streetLineOne, ad.streetLineTwo,
+-- 	ad.city, ad.state, ad.country, ad.zipCode
+--   FROM Account ac 
+--   Left JOIN Address ad 
+--   ON ac.accountId = ad.accountId;
+-- END
+-- GO
 
-CREATE PROCEDURE GetPaymentMethods
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT ac.accountId, ac.username, ac.password,
-	ac.firstName, ac.lastName, ac.email, ac.phoneNumber,
-	pm.paymentMethodId, pm.cardNumber, pm.expDate,
-	pm.cvvNumber
-  FROM Account ac 
-  LEFT JOIN PaymentMethod pm 
-  ON ac.accountId = pm.accountId;
-END
-GO
+-- CREATE PROCEDURE GetPaymentMethods
+-- AS
+-- BEGIN
+-- 	SET NOCOUNT ON;
+-- 	SELECT ac.accountId, ac.username, ac.password,
+-- 	ac.firstName, ac.lastName, ac.email, ac.phoneNumber,
+-- 	pm.paymentMethodId, pm.cardNumber, pm.expDate,
+-- 	pm.cvvNumber
+--   FROM Account ac 
+--   LEFT JOIN PaymentMethod pm 
+--   ON ac.accountId = pm.accountId;
+-- END
+-- GO
 
-CREATE PROCEDURE LogIn 
-@isLoggedIn INT,
-@state INT,
-@accountId INT
-AS
-BEGIN
-	UPDATE Account SET @isLoggedIn = @state
-	WHERE accountId = @accountId
-END
-GO
+-- CREATE PROCEDURE LogIn 
+-- @isLoggedIn INT,
+-- @state INT,
+-- @accountId INT
+-- AS
+-- BEGIN
+-- 	UPDATE Account SET @isLoggedIn = @state
+-- 	WHERE accountId = @accountId
+-- END
+-- GO
 
-CREATE PROCEDURE GetCarts
-AS
-BEGIN
-	SET NOCOUNT ON;
-  SELECT a.accountId, a.username, a.password,
-	a.firstName, a.lastName, a.email, a.phoneNumber,
-	c.cartId, cp.cartProductId, cp.quantity, p.productId,
-	p.name, p.broadType, p.clothingType, p.price,
-	p.numStars, p.sku, p.image, p.manufacturer, p.height,
-	p.length, p.width, p.weight, p.description, p.isNewArrival
-  FROM Cart c 
-  RIGHT JOIN CartProduct cp 
-  ON c.cartId = cp.cartId 
-  RIGHT JOIN Product p 
-  ON cp.productId = p.productId 
-  RIGHT JOIN Account a 
-  ON c.accountId = a.accountId;
-END
-GO
+-- CREATE PROCEDURE GetCarts
+-- AS
+-- BEGIN
+-- 	SET NOCOUNT ON;
+--   SELECT a.accountId, a.username, a.password,
+-- 	a.firstName, a.lastName, a.email, a.phoneNumber,
+-- 	c.cartId, cp.cartProductId, cp.quantity, p.productId,
+-- 	p.name, p.broadType, p.clothingType, p.price,
+-- 	p.numStars, p.sku, p.image, p.manufacturer, p.height,
+-- 	p.length, p.width, p.weight, p.description, p.isNewArrival
+--   FROM Cart c 
+--   RIGHT JOIN CartProduct cp 
+--   ON c.cartId = cp.cartId 
+--   RIGHT JOIN Product p 
+--   ON cp.productId = p.productId 
+--   RIGHT JOIN Account a 
+--   ON c.accountId = a.accountId;
+-- END
+-- GO
 
 CREATE PROCEDURE GetSales
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT s.saleId, sp.saleProductId, sp.productId, 
-  s.name, s.startDate, s.endDate, s.discount, s.isPercentDiscount, p.name, p.broadType, p.clothingType,
+	SELECT s.saleId, s.name, s.startDate, s.endDate, 
+	s.discount, s.isPercentDiscount, p.productId, p.name, p.broadType, p.clothingType,
 	p.price, p.numStars, p.sku, p.image, p.manufacturer, p.height,
-	p.length, p.width, p.weight, p.description, p.isNewArrival
-  FROM Sale s
-	LEFT JOIN SaleProduct sp
-	ON s.saleId = sp.saleId
-  LEFT JOIN Product p
-	ON sp.productId = p.productId
-	ORDER BY s.saleId, sp.saleProductId, p.productId
+	p.length, p.width, p.weight, p.description, p.isNewArrival, p.saleId
+  FROM Product p
+  RIGHT JOIN Sale s
+	ON s.saleId = p.saleId
+	ORDER BY s.saleId, p.productId
 END
 GO
 

@@ -20,8 +20,5 @@ namespace Contracts
 
         [DataMember]
         public bool isPercentDiscount { get; set; }
-
-        [DataMember]
-        public List<Product>? saleProducts { get; set; }
     }
 }
