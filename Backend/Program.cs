@@ -23,6 +23,33 @@ public class Program
                 });
         });
 
+        static Product getProduct(SqlDataReader reader)
+        {
+            Product product = new Product();
+            product.id = reader.GetInt32(0);
+            product.name = reader.GetString(1);
+            product.broadType = reader.GetString(2);
+            product.clothingType = reader.GetString(3);
+            product.price = reader.GetFloat(4);
+            product.numStars = reader.GetFloat(5);
+            product.sku = reader.GetString(6);
+            product.image = reader.GetString(7);
+            product.manufacturer = reader.GetString(8);
+            product.height = reader.GetFloat(9);
+            product.length = reader.GetFloat(10);
+            product.width = reader.GetFloat(11);
+            product.weight = reader.GetFloat(12);
+            product.description = reader.GetString(13);
+            if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
+            else { product.isNewArrival = false; }
+            product.saleId = null;
+            if (!reader.IsDBNull(15))
+            {
+                product.saleId = reader.GetInt32(15);
+            }
+            return product;
+        }
+
         var app = builder.Build();
 
         app.UseCors(MyAllowSpecificOrigins);
@@ -31,7 +58,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<MensShirt> products = new List<MensShirt>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -44,23 +71,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        MensShirt product = new MensShirt();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -74,7 +85,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<MensJacket> products = new List<MensJacket>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -87,23 +98,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        MensJacket product = new MensJacket();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -117,7 +112,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<MensPants> products = new List<MensPants>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -130,23 +125,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        MensPants product = new MensPants();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -160,7 +139,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<MensShorts> products = new List<MensShorts>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -173,23 +152,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        MensShorts product = new MensShorts();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -203,7 +166,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<WomensShirt> products = new List<WomensShirt>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -216,23 +179,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        WomensShirt product = new WomensShirt();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -246,7 +193,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<WomensJacket> products = new List<WomensJacket>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -259,23 +206,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        WomensJacket product = new WomensJacket();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -289,7 +220,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<WomensPants> products = new List<WomensPants>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -302,23 +233,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        WomensPants product = new WomensPants();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -332,7 +247,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<WomensShorts> products = new List<WomensShorts>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -345,23 +260,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        WomensShorts product = new WomensShorts();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -375,7 +274,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<KidsShirt> products = new List<KidsShirt>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -388,23 +287,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        KidsShirt product = new KidsShirt();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -418,7 +301,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<KidsJacket> products = new List<KidsJacket>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -431,23 +314,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        KidsJacket product = new KidsJacket();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -461,7 +328,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<KidsPants> products = new List<KidsPants>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -474,23 +341,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        KidsPants product = new KidsPants();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -504,7 +355,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<KidsShorts> products = new List<KidsShorts>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -517,23 +368,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        KidsShorts product = new KidsShorts();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -547,7 +382,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<Backpack> products = new List<Backpack>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -560,23 +395,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        Backpack product = new Backpack();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -590,7 +409,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<Necklace> products = new List<Necklace>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -603,23 +422,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        Necklace product = new Necklace();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -633,7 +436,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<Watch> products = new List<Watch>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -646,23 +449,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        Watch product = new Watch();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -676,7 +463,7 @@ public class Program
         {
             string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-            List<Hat> products = new List<Hat>();
+            List<Product> products = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -689,23 +476,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        Hat product = new Hat();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -732,23 +503,7 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        Hat product = new Hat();
-                        product.id = reader.GetInt32(0);
-                        product.name = reader.GetString(1);
-                        product.broadType = reader.GetString(2);
-                        product.clothingType = reader.GetString(3);
-                        product.price = reader.GetFloat(4);
-                        product.numStars = reader.GetFloat(5);
-                        product.sku = reader.GetString(6);
-                        product.image = reader.GetString(7);
-                        product.manufacturer = reader.GetString(8);
-                        product.height = reader.GetFloat(9);
-                        product.length = reader.GetFloat(10);
-                        product.width = reader.GetFloat(11);
-                        product.weight = reader.GetFloat(12);
-                        product.description = reader.GetString(13);
-                        if (reader.GetInt32(14) == 1) { product.isNewArrival = true; }
-                        else { product.isNewArrival = false; }
+                        Product product = new Product(getProduct(reader));
 
                         products.Add(product);
                     }
@@ -827,8 +582,9 @@ public class Program
                         if (reader.GetInt32(20) == 1) { product.isNewArrival = true; }
                         else { product.isNewArrival = false; }
                         product.saleId = null;
-                        if (!reader.IsDBNull(reader.GetOrdinal("saleId"))) {
-                            product.saleId = reader.GetInt32(reader.GetOrdinal("saleId")); 
+                        if (!reader.IsDBNull(reader.GetOrdinal("saleId")))
+                        {
+                            product.saleId = reader.GetInt32(reader.GetOrdinal("saleId"));
                         }
                         productsAndTheirSale.Add(new Tuple<Product, Sale>(product, sale));
                     }
@@ -869,6 +625,27 @@ public class Product
     public string? description { get; set; }
     public bool? isNewArrival { get; set; }
     public int? saleId { get; set; }
+
+    public Product() {}
+    public Product(Product product)
+    {
+        this.id = product.id;
+        this.name = product.name;
+        this.broadType = product.broadType;
+        this.clothingType = product.clothingType;
+        this.price = product.price;
+        this.numStars = product.numStars;
+        this.sku = product.sku;
+        this.image = product.image;
+        this.manufacturer = product.manufacturer;
+        this.height = product.height;
+        this.length = product.length;
+        this.width = product.width;
+        this.weight = product.weight;
+        this.description = product.description;
+        this.isNewArrival = product.isNewArrival;
+        this.saleId = product.saleId;
+    }
 }
 
 public class Sale
@@ -881,19 +658,3 @@ public class Sale
     public bool isPercentDiscount { get; set; }
 }
 
-public class MensShirt : Product { }
-public class MensJacket : Product { }
-public class MensPants : Product { }
-public class MensShorts : Product { }
-public class WomensShirt : Product { }
-public class WomensJacket : Product { }
-public class WomensPants : Product { }
-public class WomensShorts : Product { }
-public class KidsShirt : Product { }
-public class KidsJacket : Product { }
-public class KidsPants : Product { }
-public class KidsShorts : Product { }
-public class Backpack : Product { }
-public class Necklace : Product { }
-public class Watch : Product { }
-public class Hat : Product { }
