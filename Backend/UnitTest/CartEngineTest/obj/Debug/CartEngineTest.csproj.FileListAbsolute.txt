@@ -1,0 +1,17 @@
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\CartEngineTest.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\CartEngineTest.pdb
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\StoreCartEngineTest.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\StoreCartEngineTest.pdb
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\obj\Debug\CartEngineTest.csproj.AssemblyReference.cache
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\obj\Debug\CartEngineTest.csproj.CoreCompileInputs.cache
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\obj\Debug\CartEngineTest.csproj.CopyComplete
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\obj\Debug\CartEngineTest.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\CartEngineTest\obj\Debug\CartEngineTest.pdb
