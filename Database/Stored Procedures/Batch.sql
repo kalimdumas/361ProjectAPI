@@ -221,7 +221,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	 price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description, isNewArrival
+	length, width, weight, description, isNewArrival, saleId
 	FROM Product
   WHERE (broadType = 'women')
   AND (clothingType = 'shirt' OR clothingType = 'shirts')
@@ -347,7 +347,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT productId, name, broadType, clothingType,
 	price, numStars, sku, image, manufacturer, height,
-	length, width, weight, description, isNewArrival
+	length, width, weight, description, isNewArrival, saleId
 	FROM Product p
   WHERE (broadType = 'accessory' OR broadType = 'accessories')
   AND (clothingType = 'necklace' OR clothingType = 'necklace')
