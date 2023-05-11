@@ -552,11 +552,6 @@ public class Program
                 {
                     while (await reader.ReadAsync())
                     {
-                        // s.saleId, s.name, s.startDate, s.endDate, 
-                        // s.discount, s.isPercentDiscount, p.productId, p.name, p.broadType, p.clothingType,
-                        // p.price, p.numStars, p.sku, p.image, p.manufacturer, p.height,
-                        // p.length, p.width, p.weight, p.description, p.isNewArrival, p.saleId
-
                         Product product = new Product();
                         Sale sale = new Sale();
                         sale.id = reader.GetInt32(0);
@@ -595,9 +590,9 @@ public class Program
         });
 
         CartEngine cartEngine = new CartEngine();
-        app.MapGet("/apply-sale", (double originalPrice, double salePercentage, double dollarAmount) =>
+        app.MapGet("/apply-sale", (double price, bool isPercentDiscount, double discount) =>
         {
-            double newPrice = cartEngine.applySale(originalPrice, salePercentage, dollarAmount);
+            double newPrice = cartEngine.applySale(price, isPercentDiscount, discount);
             return newPrice;
         });
 
