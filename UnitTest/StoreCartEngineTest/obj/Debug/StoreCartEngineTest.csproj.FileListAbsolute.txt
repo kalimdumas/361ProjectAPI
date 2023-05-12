@@ -4,3 +4,9 @@ C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\StoreCartEngineTest\obj\D
 C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\StoreCartEngineTest\obj\Debug\StoreCartEngineTest.csproj.CoreCompileInputs.cache
 C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\StoreCartEngineTest\obj\Debug\StoreCartEngineTest.dll
 C:\Users\Wasao\Desktop\UNL\CSCE361\StoreCartEngineTest\StoreCartEngineTest\obj\Debug\StoreCartEngineTest.pdb
+C:\Users\Wasao\Desktop\UNL\CSCE361\361ProjectAPI\UnitTest\StoreCartEngineTest\bin\Debug\StoreCartEngineTest.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\361ProjectAPI\UnitTest\StoreCartEngineTest\bin\Debug\StoreCartEngineTest.pdb
+C:\Users\Wasao\Desktop\UNL\CSCE361\361ProjectAPI\UnitTest\StoreCartEngineTest\obj\Debug\StoreCartEngineTest.csproj.AssemblyReference.cache
+C:\Users\Wasao\Desktop\UNL\CSCE361\361ProjectAPI\UnitTest\StoreCartEngineTest\obj\Debug\StoreCartEngineTest.csproj.CoreCompileInputs.cache
+C:\Users\Wasao\Desktop\UNL\CSCE361\361ProjectAPI\UnitTest\StoreCartEngineTest\obj\Debug\StoreCartEngineTest.dll
+C:\Users\Wasao\Desktop\UNL\CSCE361\361ProjectAPI\UnitTest\StoreCartEngineTest\obj\Debug\StoreCartEngineTest.pdb

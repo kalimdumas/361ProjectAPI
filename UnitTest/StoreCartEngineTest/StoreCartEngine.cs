@@ -3,9 +3,16 @@ namespace Engines
 {
     public class CartEngine
     {
-        public double applySale(double price, double percentOff, double dollarsOff)
+        public double applySale(double price, bool isPercentDiscount, double discount)
         {
-            return price * (1 - (percentOff / 100.0)) - dollarsOff;
+            if (isPercentDiscount)
+            {
+                return price * (1 - discount / 100);
+            }
+            else
+            {
+                return price - discount;
+            }
         }
     }
 }
