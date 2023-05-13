@@ -9,22 +9,22 @@ namespace Backend.Managers
      */
     public class LoginManager : LoginManagerInterface
     { 
-        public User processInput(string username, string password)
-        {
-            User user = new User();
-            user.username = username;
-            user.password = password;
-            return user;
-        }
+        // public User processInput(string username, string password)
+        // {
+        //     User user = new User();
+        //     user.username = username;
+        //     user.password = password;
+        //     return user;
+        // }
 
-        public User verifyUser(User user)
-        {
-            string username = user.username;
-            string password = user.password;
+        // public User verifyUser(User user)
+        // {
+        //     string username = user.username;
+        //     string password = user.password;
 
-            // TODO: Get user by username and verify password
+        //     // TODO: Get user by username and verify password
             
-            return user;
-        }
+        //     return user;
+        // }
     }
 }

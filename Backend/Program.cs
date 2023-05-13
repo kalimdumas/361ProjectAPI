@@ -513,27 +513,40 @@ public class Program
             return products;
         });
 
-        // app.MapPost("/login", async (HttpContext httpContext) =>
-        // {
-        //     var isLoggedIn = await Request.ReadFromJsonAsync<int>();
+        app.MapGet("/login", async (string username, string password, HttpContext httpContext) =>
+        {
+            string? connectionString = builder.Configuration.GetConnectionString("local_database");
 
-        //     string? connectionString = builder.Configuration.GetConnectionString("local_database");
+            List<Account> accounts = new List<Account>();
 
-        //     using (SqlConnection connection = new SqlConnection(connectionString))
-        //     {
-        //         SqlCommand command = new SqlCommand("LogIn", connection);
-        //         command.CommandType = CommandType.StoredProcedure;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("LogIn", connection);
+                command.CommandType = CommandType.StoredProcedure;
 
-        //         await connection.OpenAsync();
+                await connection.OpenAsync();
 
-        //         command.Parameters.AddWithValue("@LogIn", isLoggedIn);
+                using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        Account account = new Account();
+                        account.accountId = reader.GetInt32(0);
+                        account.username = reader.GetString(1);
+                        account.password = reader.GetString(2);
+                        account.firstName = reader.GetString(3);
+                        account.lastName = reader.GetString(4);
+                        account.email = reader.GetString(5);
+                        account.isLoggedIn = reader.GetInt32(6);
+                        accounts.Add(account);
+                    }
+                }
+            }
+            LoginEngine loginEngine = new LoginEngine();
+            bool isAccount = loginEngine.checkIfAccount(username, password, accounts);
 
-        //         await command.ExecuteNonQueryAsync();
-
-        //         return Results.Ok("login successful");
-
-        //     }d
-        // });
+            return isAccount;
+        });
 
         app.MapGet("/sales", async (HttpContext httpContext) =>
         {
@@ -621,7 +634,7 @@ public class Product
     public bool? isNewArrival { get; set; }
     public int? saleId { get; set; }
 
-    public Product() {}
+    public Product() { }
     public Product(Product product)
     {
         this.id = product.id;
@@ -641,6 +654,18 @@ public class Product
         this.isNewArrival = product.isNewArrival;
         this.saleId = product.saleId;
     }
+}
+
+public class Account
+{
+    public int? accountId { get; set; }
+    public string? username { get; set; }
+    public string? password { get; set; }
+    public string? firstName { get; set; }
+    public string? lastName { get; set; }
+    public string? email { get; set; }
+    public string? phoneNumber { get; set; }
+    public int? isLoggedIn { get; set; }
 }
 
 public class Sale
